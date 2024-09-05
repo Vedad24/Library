@@ -21,7 +21,33 @@ addBookToLib(HitchhikerGuide);
 
 let displayBooks = () => {
     myLibrary.forEach(book => {
-        console.log(book);
+
+        let slot = document.createElement("div");
+        slot.classList.add("book-slot");
+
+        let details = document.createElement("div");
+        details.classList.add("details");
+
+        let titleEl = document.createElement("h2");
+        let authorEl = document.createElement("h3");
+        let pagesEl = document.createElement("h3");
+        let readEl = document.createElement("h3");
+
+        titleEl.innerHTML = `${book.title}`;
+        authorEl.innerHTML = `By ${book.author}`;
+        pagesEl.innerHTML = `Pages: ${book.numberOfPages}`;
+        readEl.innerHTML = `Read: ${book.read}`;
+
+        details.appendChild(titleEl);
+        details.appendChild(authorEl);
+        details.appendChild(pagesEl);
+        details.appendChild(readEl);
+
+        let bookCover = document.createElement("img");
+
+        slot.appendChild(details);
+        slot.append(bookCover);
+        document.querySelector(".bookshelf").appendChild(slot);
     })
 }
 
