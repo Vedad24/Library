@@ -57,6 +57,7 @@ header form svg{
 }
 
 .book-slot{
+    position: relative;
     border: 1px solid black;
     padding: 1rem;
     border-radius: 20px;
@@ -71,12 +72,27 @@ header form svg{
 
 .book-slot .details h2{
     margin-bottom: 1rem;
-}   
+}
+
+.book-slot .right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
 
 .book-slot img{
-    align-self: center;
     width: 120px;
     height: 170px;
+    border-radius: 10px;
+}
+
+.book-slot button{
+    background-color: rgb(218, 106, 106);
+    width: 4rem;
+    height: 2rem;
+    align-self: flex-end;
+    border-radius: 10px;
 }
 
 
