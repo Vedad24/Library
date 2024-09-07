@@ -43,7 +43,14 @@ let displayBooks = () => {
         titleEl.innerHTML = `${book.title}`;
         authorEl.innerHTML = `By ${book.author}`;
         pagesEl.innerHTML = `Pages: ${book.numberOfPages}`;
-        readEl.innerHTML = `Read: ${book.read}`;
+        readEl.innerHTML = `Have you read it:`;
+        readEl.classList.add("read-h");
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = book.read;
+
+        readEl.appendChild(checkbox);
 
         details.appendChild(titleEl);
         details.appendChild(authorEl);
