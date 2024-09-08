@@ -1,6 +1,7 @@
 let myLibrary = [];
 
 let index = 0;
+let dialogEl = document.querySelector("#dialog");
 
 function Book(title, author, numberOfPages, read) {
     this.title = title;
@@ -20,8 +21,6 @@ let HitchhikerGuide = new Book("The Hitchhiker's Guide to the Galaxy", " Douglas
 
 addBookToLib(HarryPotter_I);
 addBookToLib(AtomicHabits);
-addBookToLib(HitchhikerGuide);
-addBookToLib(HitchhikerGuide);
 addBookToLib(HitchhikerGuide);
 
 let displayBooks = () => {
@@ -49,6 +48,14 @@ let displayBooks = () => {
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = book.read;
+        checkbox.addEventListener("change", (event) => {
+            if (event.currentTarget.checked) {
+                book.read = true;
+            }
+            else {
+                book.read = false;
+            }
+        })
 
         readEl.appendChild(checkbox);
 
@@ -71,19 +78,57 @@ let displayBooks = () => {
         rightSide.appendChild(delBtn);
         rightSide.appendChild(bookCover);
         slot.appendChild(rightSide);
-        document.querySelector(".bookshelf").appendChild(slot);
+        document.querySelector(".bookshelf").insertBefore(slot, document.querySelector(".book-slot-add"));
         i++;
+    })
+};
+
+let showDialog = () => {
+    document.querySelector(".show").addEventListener("click", () => {
+        dialogEl.showModal();
     })
 }
 
-displayBooks();
-
-document.querySelectorAll(".delete-btn").forEach(btn => {
-    let selectedSlot = btn.parentElement.parentElement;
-    btn.addEventListener("click", function () {
-        myLibrary = myLibrary.filter(book =>
-            book.index != selectedSlot.classList[1]);
-        selectedSlot.remove();
+let closeDialog = () => {
+    document.querySelector(".close").addEventListener("click", () => {
+        dialogEl.close();
     })
+}
 
+let removeBook = () => {
+    document.querySelectorAll(".delete-btn").forEach(btn => {
+        let selectedSlot = btn.parentElement.parentElement;
+        btn.addEventListener("click", function () {
+            myLibrary = myLibrary.filter(book =>
+                book.index != selectedSlot.classList[1]);
+            selectedSlot.remove();
+        })
+    });
+}
+
+let addBtn = document.querySelector(".add-book");
+addBtn.addEventListener("click", () => {
+    /*Form vales*/
+    let formTitle = document.querySelector("#book-title").value;
+    let formAuthor = document.querySelector("#book-author").value;
+    let formPages = document.querySelector("#book-pages").value;
+    let formRead = document.querySelector("#book-status").checked;
+    document.querySelector(".bookshelf").innerHTML = " ";
+    document.querySelector(".bookshelf").innerHTML += `
+        <div class="book-slot-add">
+            <button type="button" class="show">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>plus-box</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" /></svg>
+            </button>
+        </div>`;
+    addBookToLib(new Book(formTitle, formAuthor, formPages, formRead));
+    displayBooks();
+    showDialog();
+    removeBook();
+    dialogEl.close();
+    document.querySelector(".inputs").reset();
 })
+
+displayBooks();
+removeBook();
+showDialog();
+closeDialog();

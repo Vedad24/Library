@@ -1,17 +1,17 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.container{
+.container {
     background-color: wheat;
     display: grid;
     grid-template-rows: 100px 10fr auto;
     min-height: 100vh;
 }
 
-header{
+header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -19,17 +19,17 @@ header{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 12px;
 }
 
-header h1{
+header h1 {
     padding-left: 2rem;
 }
 
-header form{
+header form {
     justify-self: end;
     position: relative;
     padding-right: 2rem;
 }
 
-header input{
+header input {
     border-radius: 3em;
     padding: 6px 18px;
     padding-right: 32px;
@@ -37,7 +37,7 @@ header input{
     font-size: 16px;
 }
 
-header form svg{
+header form svg {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -47,7 +47,7 @@ header form svg{
 }
 
 
-.bookshelf{
+.bookshelf {
     padding: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -56,38 +56,58 @@ header form svg{
     overflow-y: auto;
 }
 
-.book-slot{
+.book-slot {
+    background-color: rgb(245, 230, 206);
     position: relative;
-    border: 1px solid black;
     padding: 1rem;
     border-radius: 20px;
     display: grid;
     grid-template-columns: 3fr 1fr;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) -3px -3px 0px inset;
 }
 
-.book-slot .details{
+.book-slot-add {
+    background-color: rgb(245, 230, 206);
+    padding: 1rem;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) -3px -3px 0px inset;
+    display: grid;
+    place-items: center;
+}
+
+.book-slot-add .show {
+    background-color: rgb(245, 230, 206);
+    outline: none;
+    border: none;
+}
+
+.book-slot-add svg {
+    width: 100px;
+}
+
+.book-slot .details {
     display: flex;
     flex-direction: column;
 }
 
-.book-slot .details h2{
+.book-slot .details h2 {
     margin-bottom: 1rem;
 }
 
-.book-slot .right{
+.book-slot .right {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
 
-.book-slot img{
+.book-slot img {
     width: 120px;
     height: 170px;
     border-radius: 10px;
 }
 
-.book-slot button{
+.book-slot button {
     background-color: rgb(218, 106, 106);
     width: 4rem;
     height: 2rem;
@@ -95,25 +115,55 @@ header form svg{
     border-radius: 10px;
 }
 
-.read-h{
+.read-h {
     display: grid;
     grid-template-columns: 150px 20px;
 }
 
-.read-h input{
+.read-h input {
     width: 70%;
     align-self: end;
     margin-bottom: 3px;
 }
 
+#dialog {
+    height: 30rem;
+    width: 25rem;
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px;
+    padding: 2rem 0;
+    padding-left: 6rem;
+}
 
+#dialog .inputs {
+    display: flex;
+    flex-direction: column;
+}
 
+#dialog label {
+    font-size: 20px;
+}
 
+#dialog label~label {
+    margin-top: 20px;
+}
 
+#dialog input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    width: 70%;
+}
 
+#dialog button {
+    width: 200px;
+}
 
+#dialog::backdrop {
+    backdrop-filter: blur(3px);
+}
 
-footer{
+footer {
     background-color: rgb(245, 230, 206);
     display: flex;
     justify-content: center;
