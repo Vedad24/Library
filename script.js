@@ -12,9 +12,9 @@ function Book(title, author, numberOfPages, read, cover = "") {
     this.cover = cover;
 }
 
-let HarryPotter = new Book("Harry Potter and the Philosopher's Stone", "J. K. Rowling", 223, false, "91wKDODkgWL._AC_UF1000,1000_QL80_.jpg");
-let AtomicHabits = new Book("Atomic Habits", "James Clear", 320, true);
-let HitchhikerGuide = new Book("The Hitchhiker's Guide to the Galaxy", " Douglas Adams", 224, true);
+let HarryPotter = new Book("Harry Potter and the Sorcerer's Stone", "J. K. Rowling", 223, false, "https://ia904703.us.archive.org/view_archive.php?archive=/9/items/l_covers_0012/l_covers_0012_02.zip&file=0012020813-L.jpg");
+let AtomicHabits = new Book("Atomic Habits", "James Clear", 320, true, "https://covers.openlibrary.org/b/id/14813724-M.jpg");
+let HitchhikerGuide = new Book("The Hitchhiker's Guide to the Galaxy", " Douglas Adams", 224, true, "https://ia600505.us.archive.org/view_archive.php?archive=/10/items/m_covers_0011/m_covers_0011_46.zip&file=0011464553-M.jpg");
 
 function addBookToLib(book) {
     myLibrary.push(book);
