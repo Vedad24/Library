@@ -117,6 +117,7 @@ header form svg {
     height: 2rem;
     align-self: flex-end;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .read-h {
@@ -176,6 +177,7 @@ input[type="number"] {
     border: 0;
     border-radius: 50%;
     color: white;
+    cursor: pointer;
 }
 
 #dialog::backdrop {
