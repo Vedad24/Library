@@ -117,6 +117,12 @@ class Library {
             const formPages = document.querySelector("#book-pages").value;
             const formRead = document.querySelector("#book-status").checked;
             const formCover = document.querySelector("#book-cover").value;
+            const formT = document.querySelector("#book-title");
+            const formA = document.querySelector("#book-author");
+
+            if (!formT.checkValidity() || !formA.checkValidity()) {
+                return;
+            }
 
             this.addBooktoLib(new Book(formTitle, formAuthor, formPages, formRead, formCover));
             this.bookshelf.innerHTML = "";
